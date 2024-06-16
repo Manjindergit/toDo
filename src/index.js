@@ -1,12 +1,17 @@
 import { createProject } from "./controller/project.js";
 
 document.addEventListener('DOMContentLoaded', function() {
-    const project1 = createProject('project1');
-    project1.addTask('task1');
-    project1.addTask('task2');
-    project1.showTask();
     
-   
-
+    const addProjBtn  = document.getElementById('btnAddProj');
+    console.log(addProjBtn);
+    addProjBtn.addEventListener('click', function() {
+        const projName = document.getElementById('inputProject').value;
+        const project = createProject(projName);
+        console.log(project);
+    });
+    
+    
 });
+
+
 

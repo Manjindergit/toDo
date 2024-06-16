@@ -6,11 +6,37 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <nav><Button class="navBtn">Home</Button><Button class="navBtn">About Us</Button></nav>
-    </header>
+   
     <main>
-        <div id="mainDiv"></div>
+        <div id="mainDiv">
+            <h1>ToDO List</h1>
+            <input type="text" id="inputProject" placeholder="Enter your Project here">
+            <button id="btnAddProj">Add</button>
+            <ul id="list"></ul>
+        </div>
+        <div class="projects" id="projectContainer">
+            <h1>Projects</h1>
+            <ul id="projectsList"></ul>
+
+        </div>
+        <div id="taskForm" style="display: none;">
+            <h1>Task Form</h1>
+            <form action="" >
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" name="taskName"><br><br>
+                <label for="taskDescription">Task Description:</label>
+                <input type="text" id="taskDescription" name="taskDescription"><br><br>
+                <label for="taskDueDate">Task Due Date:</label>
+                <input type="date" id="taskDueDate" name="taskDueDate"><br><br>
+                <label for="taskPriority">Task Priority:</label>
+                <input type="text" id="taskPriority" name="taskPriority"><br><br>
+                <label for="taskStatus">Task Status:</label>
+                <input type="text" id="taskStatus" name="taskStatus"><br><br>
+                <label for="Notes">Notes:</label>
+                <textarea id="notes" name="notes"></textarea><br><br>
+                <input type="submit" value="Submit">
+              </form>
+        </div>
     </main>
     
 </body>
