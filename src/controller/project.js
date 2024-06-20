@@ -1,22 +1,35 @@
 import { createTasks } from './task.js';
 
-export const createProject=(name)=> {
-  const tasksArr = [];
+/* {createTasks}
+//export a module from this file
 
-  const addTask = (task) => {
-    tasksArr.push(task);
-  };
-
-  const showTask = () => {
-    console.log(tasksArr);
-  };
-
+export function createTasks(title, description, dueDate, priority, notes) {
   return {
-    title: `@${name}`,
-    addTask,
-    showTask,
+    title,
+    description,
+    dueDate,
+    priority,
+    notes,
   };
 }
 
 
+*/
+
+export const project = (projectName) => {
+  const tasks = [];
+console.log('this line is alsoo running');
+  const addTask = (title, description, dueDate, priority, notes) => {
+    tasks.push(createTasks(title, description, dueDate, priority, notes))};
+
+  const getTasks = () => {
+    return tasks;
+  }
+
+  return {
+    projectName,
+    addTask,
+    getTasks
+  };
+};
 
