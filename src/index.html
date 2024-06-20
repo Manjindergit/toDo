@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-   
+
     <main>
         <div id="mainDiv">
             <h1>ToDO List</h1>
@@ -14,11 +16,18 @@
             <button id="btnAddProj">Add</button>
             <ul id="list"></ul>
         </div>
-        <div class="projects" id="projectContainer">
+        <div class="projects" id="projectContainer" style="display: block;">
             <h1>Projects</h1>
             <ul id="projectsList"></ul>
 
         </div>
+
+
+        <div id="taskContainer" style="display: none;">
+            <h1>Tasks</h1>
+            <ul id="taskList"></ul>
+        </div>
+
         <div id="taskForm" style="display: none;">
             <h1>Task Form</h1>
             <form id="addTaskForm">
@@ -33,11 +42,13 @@
                 <label for="taskStatus">Task Status:</label>
                 <input type="text" id="taskStatus" name="taskStatus" value="Status"><br><br>
                 <label for="Notes">Notes:</label>
-                <textarea id="taskNotes" name="notes" value="kijbagsbuis kaisjhgfokihasd asdoghoihoi  dashuiuhdfsuia"></textarea><br><br>
+                <textarea id="taskNotes" name="notes"
+                    value="kijbagsbuis kaisjhgfokihasd asdoghoihoi  dashuiuhdfsuia"></textarea><br><br>
                 <input type="submit" value="Submit">
-              </form>
+            </form>
         </div>
     </main>
-    
+
 </body>
+
 </html>
