@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   projContainer.addEventListener("click", function (e) {
-    if (e.target.classList.contains("project-card")) {
+    if (e.target.classList.contains("card")) {
       formDiv.style.display = "block";
       document.getElementById("taskForm").setAttribute("data", e.target.id);
       const project = projectHandler.getProjectName(e.target.id);

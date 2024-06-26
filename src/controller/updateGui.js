@@ -9,9 +9,30 @@ export function updateProjectList(projContainer, projectHandler) {
   // Create and append new project elements and also add button to add new task
   projects.forEach((project) => {
     let projCard = document.createElement("div");
-    projCard.className = "project-card";
+    const addTaskBtn = document.createElement("button");
+    const deleteProjBtn = document.createElement("button");
+    const projectTitle = document.createElement("h2");
+
+  
+
+    deleteProjBtn.textContent = "x";
+    deleteProjBtn.classList.add("btn-close");
+
+
+    addTaskBtn.textContent = "Add Task";
+
+    
+    projCard.className = "card";
     projCard.setAttribute("id", project.projectName);
-    projCard.textContent = project.projectName;
+    projCard.style.cursor = "pointer";
+    
+    projectTitle.textContent = project.projectName;
+    //append both buttons and project title to the project card
+    projCard.appendChild(projectTitle);
+    projCard.appendChild(addTaskBtn);
+    projCard.appendChild(deleteProjBtn);
+
+    //append project card to the project container
     projContainer.appendChild(projCard);
     
   });
