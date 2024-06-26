@@ -1,6 +1,5 @@
 import { projectHandler } from "./controller/projectHandler.js";
 import { updateProjectList, updateTaskList } from "./controller/updateGui.js";
-import { findProject } from "./controller/findProject.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const addProjBtn = document.getElementById("btnAddProj");
@@ -23,8 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.target.classList.contains("project-card")) {
       formDiv.style.display = "block";
       document.getElementById("taskForm").setAttribute("data", e.target.id);
-      console.log(`THIS FUNCTION IS RUNNING TOO ${e.target.id}`);
-      const project = findProject(projectHandler, e.target.id);
+      const project = projectHandler.getProjectName(e.target.id);
       taskContainer.style.display = "block";
       updateTaskList(taskContainer, project);
     }
@@ -32,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   addTaskForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    console.log(e.target.parentElement);
+
     const taskName = document.getElementById("taskName").value;
     const taskDesc = document.getElementById("taskDescription").value;
     const taskDue = document.getElementById("taskDueDate").value;
@@ -43,10 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
     addTaskForm.reset();
     formDiv.style.display = "none";
 
-    const project = findProject(
-      projectHandler,
+    const project = projectHandler.getProjectName(
       e.target.parentElement.getAttribute("data")
     );
+    localStorage.removeItem(project.projectName);
 
     project.addTask(
       taskName,
@@ -56,9 +54,18 @@ document.addEventListener("DOMContentLoaded", function () {
       taskStatus,
       notes
     );
+
     updateTaskList(taskContainer, project);
     projectHandler
       .getProjects()
-      .forEach((proj) => console.log(proj.getTasks()));
+      .forEach((proj) => 
+        localStorage.setItem(proj.projectName,JSON.stringify(proj.getTasks()))
+    
+    );
+
+
+
+
+
   });
 });

@@ -1,6 +1,6 @@
 export function updateProjectList(projContainer, projectHandler) {
   // Clear the container
-  console.log("UPDATE FUNCTION");
+
   projContainer.innerHTML = "";
 
   // Get all projects
@@ -13,7 +13,7 @@ export function updateProjectList(projContainer, projectHandler) {
     projCard.setAttribute("id", project.projectName);
     projCard.textContent = project.projectName;
     projContainer.appendChild(projCard);
-    console.log(projContainer);
+    
   });
 
 }
