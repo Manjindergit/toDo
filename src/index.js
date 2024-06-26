@@ -1,5 +1,5 @@
 import { projectHandler } from "./controller/projectHandler.js";
-import { updateProjectList, updateTaskList } from "./controller/updateGui.js";
+import { updateProjectList, updateTaskList, loadStoredProjects } from "./controller/updateGui.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const addProjBtn = document.getElementById("btnAddProj");
@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const taskContainer = document.getElementById("taskContainer");
   //display all projects from projectHandler
 
+  loadStoredProjects(projectHandler);
   updateProjectList(projContainer, projectHandler);
 
   addProjBtn.addEventListener("click", function () {
@@ -62,10 +63,5 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem(proj.projectName,JSON.stringify(proj.getTasks()))
     
     );
-
-
-
-
-
   });
 });
